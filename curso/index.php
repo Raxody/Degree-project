@@ -7,7 +7,7 @@
 	{
 		$codigo = $_POST['codigo'];
 		if( !empty($codigo)){
-			$where = "WHERE codigo LIKE '%$codigo' or descripcion LIKE '%$codigo'";
+			$where = "WHERE codigo LIKE '%$codigo%' or descripcion LIKE '%$codigo%'";
 		}
 	}
 	$sql = "SELECT * FROM res_didactica $where";
