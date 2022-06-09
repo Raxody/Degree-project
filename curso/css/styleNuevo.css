@@ -14,11 +14,28 @@
 }
 
 .labels{
-    font-size: 30px;
+    font-size: 25px;
     color: black;
     text-align: justify;
 }
 
 #detalle{
     height: 200px;
+    color: black;
+    background-color: #fdeaeb;
+    border: none;
+    border-bottom:3px solid #000;
+
 }
+
+
+#detalle:hover{
+    
+    border: none;
+}
+
+
+#detalle:focus {
+    border: transparent;
+    border-bottom:1px solid #28a745;
+    }

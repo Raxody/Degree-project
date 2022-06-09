@@ -68,14 +68,14 @@
     <br>
     <div class="container">
 
-        <img src="images/ingresarDidactica.png" class="img-fluid" alt="Responsive image">
+        <img src="images/ingresarDidactica.png" class="img-fluid" alt="Ingresar didáctica">
         <br>
         <br>
         <form class="form-horizontal" method="POST" action="guardar.php" autocomplete="off">
 
             <div class="row">
                 <div class="col-sm-2">
-                    <label for="descripcion" class="labels">Placa:</label>
+                    <label for="descripcion" class="labels">*Nombre:</label>
                 </div>
                 <div class="col-sm-10">
                     <input type="text" class="form-control" id="descripcion" name="descripcion"
@@ -85,14 +85,14 @@
             <br>
             <div class="row">
                 <div class="col-sm-2">
-                    <label for="detalle" class="labels">Detalle:</label>
+                    <label for="detalle" class="labels">*Detalle:</label>
                 </div>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" id="detalle" name="detalle"
-                        placeholder="Ingresa con completo detalle la metodologia" required>
-                </div>
+                  <textarea class="form-control" placeholder="Leave a comment here" id="detalle"></textarea>
+                  </div>
             </div>
             <br>
+            <form class="form-floating">
 
 
             <div class="form-group">
