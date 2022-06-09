@@ -1,9 +1,9 @@
 <?php
 	require 'conexion.php';
 	
-	$id = $_GET['id'];
+	$codigo = $_GET['codigo'];
 	
-	$sql = "SELECT * FROM personas WHERE id = '$id'";
+	$sql = "SELECT * FROM res_didactica WHERE codigo = '$codigo'";
 	$resultado = $mysqli->query($sql);
 	$row = $resultado->fetch_array(MYSQLI_ASSOC);
 	
@@ -28,7 +28,7 @@
 				<div class="form-group">
 					<label for="nombre" class="col-sm-2 control-label">Nombre</label>
 					<div class="col-sm-10">
-						<input type="text" class="form-control" id="nombre" name="nombre" placeholder="Nombre" value="<?php echo $row['nombre']; ?>" required>
+						<input type="text" class="form-control" id="nombre" name="nombre" placeholder="Nombre" value="<?php echo $row['codigo']; ?>" required>
 					</div>
 				</div>
 				
@@ -37,14 +37,14 @@
 				<div class="form-group">
 					<label for="email" class="col-sm-2 control-label">Email</label>
 					<div class="col-sm-10">
-						<input type="email" class="form-control" id="email" name="email" placeholder="Email" value="<?php echo $row['correo']; ?>"  required>
+						<input type="email" class="form-control" id="email" name="email" placeholder="Email" value="<?php echo $row['descripcion']; ?>"  required>
 					</div>
 				</div>
 				
 				<div class="form-group">
 					<label for="telefono" class="col-sm-2 control-label">Telefono</label>
 					<div class="col-sm-10">
-						<input type="tel" class="form-control" id="telefono" name="telefono" placeholder="Telefono" value="<?php echo $row['telefono']; ?>" >
+						<input type="tel" class="form-control" id="telefono" name="telefono" placeholder="Telefono" value="<?php echo $row['detalle']; ?>" >
 					</div>
 				</div>
 				

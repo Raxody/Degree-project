@@ -88,7 +88,7 @@
                     <label for="detalle" class="labels">*Detalle:</label>
                 </div>
                 <div class="col-sm-10">
-                  <textarea class="form-control" placeholder="Leave a comment here" id="detalle"></textarea>
+                  <textarea class="form-control" placeholder="Digita una descripción detallada sobre la didactica" id="detalle"></textarea>
                   </div>
             </div>
             <br>
@@ -96,10 +96,9 @@
 
 
             <div class="form-group">
-                <div class="col-sm-offset-2 col-sm-10">
                     <a href="index.php" class="btn btn-default">Regresar</a>
-                    <button type="submit" class="btn btn-primary">Guardar</button>
-                </div>
+                    &nbsp&nbsp&nbsp&nbsp
+                    <button type="submit" class="btn btn-success">Guardar</button>
             </div>
         </form>
     </div>

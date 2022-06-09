@@ -10,7 +10,7 @@
 			$where = "WHERE nombre LIKE '%$valor'";
 		}
 	}
-	$sql = "SELECT * FROM personas $where";
+	$sql = "SELECT * FROM res_didactica $where";
 	$resultado = $mysqli->query($sql);
 	
 ?>
@@ -45,24 +45,20 @@
 				<table class="table table-striped">
 					<thead>
 						<tr>
-							<th>ID</th>
+							<th>Codigo</th>
 							<th>Nombre</th>
-							<th>Email</th>
-							<th>Telefono</th>
-							<th></th>
-							<th></th>
+							<th>descripcion</th>
 						</tr>
 					</thead>
 					
 					<tbody>
 						<?php while($row = $resultado->fetch_array(MYSQLI_ASSOC)) { ?>
 							<tr>
-								<td><?php echo $row['id']; ?></td>
-								<td><?php echo $row['nombre']; ?></td>
-								<td><?php echo $row['correo']; ?></td>
-								<td><?php echo $row['telefono']; ?></td>
-								<td><a href="modificar.php?id=<?php echo $row['id']; ?>"><span class="glyphicon glyphicon-pencil"></span></a></td>
-								<td><a href="#" data-href="eliminar.php?id=<?php echo $row['id']; ?>" data-toggle="modal" data-target="#confirm-delete"><span class="glyphicon glyphicon-trash"></span></a></td>
+								<td><?php echo $row['codigo']; ?></td>
+								<td><?php echo $row['descripcion']; ?></td>
+								<td><?php echo $row['detalle']; ?></td>
+								<td><a href="modificar.php?codigo=<?php echo $row['codigo']; ?>"><span class="glyphicon glyphicon-pencil"></span></a></td>
+								<td><a href="#" data-href="eliminar.php?codigo=<?php echo $row['codigo']; ?>" data-toggle="modal" data-target="#confirm-delete"><span class="glyphicon glyphicon-trash"></span></a></td>
 							</tr>
 						<?php } ?>
 					</tbody>
