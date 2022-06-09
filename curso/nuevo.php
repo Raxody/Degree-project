@@ -67,8 +67,7 @@
     <br>
     <br>
     <div class="container">
-
-        <img src="images/ingresarDidactica.png" class="img-fluid" alt="Ingresar didáctica">
+        <img src="../images/ingresarDidactica.png" class="img-fluid" alt="Ingresar didáctica">
         <br>
         <br>
         <form class="form-horizontal" method="POST" action="guardar.php" autocomplete="off">
@@ -88,19 +87,18 @@
                     <label for="detalle" class="labels">*Detalle:</label>
                 </div>
                 <div class="col-sm-10">
-                  <textarea class="form-control" placeholder="Digita una descripción detallada sobre la didactica" id="detalle"></textarea>
-                  </div>
+                    <textarea class="form-control" placeholder="Digita una descripción detallada sobre la didactica"
+                        id="detalle" name="detalle"></textarea>
+                </div>
             </div>
             <br>
             <form class="form-floating">
-
-
-            <div class="form-group">
+                <div class="form-group">
                     <a href="index.php" class="btn btn-default">Regresar</a>
                     &nbsp&nbsp&nbsp&nbsp
                     <button type="submit" class="btn btn-success">Guardar</button>
-            </div>
-        </form>
+                </div>
+            </form>
     </div>
 </body>
 

@@ -1,0 +1,18 @@
+.img-fluid{
+    text-align: center;
+}
+
+.container{
+    margin: 0%;
+    padding: 0%;
+}
+
+.imagen{
+    text-align: center;
+
+}
+
+#descripcion{
+    font-size: xx-large;
+    background-color: aqua;
+}

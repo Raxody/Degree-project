@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 08-06-2022 a las 23:48:22
+-- Tiempo de generación: 09-06-2022 a las 22:13:06
 -- Versión del servidor: 10.4.22-MariaDB
 -- Versión de PHP: 7.4.27
 
@@ -1553,13 +1553,13 @@ CREATE TABLE `res_didactica` (
 --
 
 INSERT INTO `res_didactica` (`codigo`, `descripcion`, `detalle`) VALUES
-(1, '', ''),
-(2, 'sdfsf', 'sdfsdf'),
-(3, 'sdfsfiiiiiiiiiiiiiiiiiiiiiiii', 'dfsdfsaaaaaaaaaaaaaaa'),
+(2, 'sdfsfaaaa', 'sdfsdf'),
+(3, 'sdfsfiiiiiiiiiiiiiiiiiiiiiiii', 'dfsdfsaaaaaaaaaaaaaaadfsdfsaaaaaaaaaaaaaaadfsdfsaaaaaaaaaaaaaaadfsdfsaaaaaaaaaaaaaaadfsdfsaaaaaaaaaaaaaaadfsdfsaaaaaaaaaaaaaaadfsdfsaaaaaaaaaaaaaaadfsdfsaaaaaaaaaaaaaaadfsdfsaaaaaaaaaaaaaaadfsdfsaaaaaaaaaaaaaaadfsdfsaaaaaaaaaaaaaaa'),
 (4, 'qqqqqqqqqqqq', '222222222222'),
-(5, 'zzzzzzzzzzzzzz', ''),
-(6, 'ddddddddddddd', ''),
-(7, 'ddddddddddddd', '');
+(5, 'juegos', 'explica interactivamente'),
+(7, 'ddddddddddddd', 'CXVBXVCXVC'),
+(8, 'asdadad', ''),
+(9, 'd', 'd');
 
 -- --------------------------------------------------------
 
@@ -3219,7 +3219,7 @@ ALTER TABLE `res_asignacion_didactica`
 -- AUTO_INCREMENT de la tabla `res_didactica`
 --
 ALTER TABLE `res_didactica`
-  MODIFY `codigo` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `codigo` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT de la tabla `wp_y5c34k_actionscheduler_actions`

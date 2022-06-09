@@ -2,9 +2,9 @@
 	
 	require 'conexion.php';
 
-	$id = $_GET['id'];
+	$codigo = $_GET['codigo'];
 	
-	$sql = "DELETE FROM personas WHERE id = '$id'";
+	$sql = "DELETE FROM res_didactica WHERE codigo = $codigo";
 	$resultado = $mysqli->query($sql);
 	
 ?>
