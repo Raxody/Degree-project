@@ -16,3 +16,23 @@
 .centrarBoton{
 text-align: center;
 }
+
+.elemento {
+  color: #fff;
+  text-decoration: none;
+  transition: .3s;
+}
+
+.elemento:hover {
+  background-color: #eb8a8a;
+}
+
+#elemento {
+  color: #fff;
+  text-decoration: none;
+  transition: .3s;
+}
+
+#elemento:hover {
+  background-color: #eb8a8a;
+}

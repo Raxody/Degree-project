@@ -27,18 +27,12 @@
 }
 
 
-/*#detalle:hover{
-    
-    border: none;
-}
-
-
-#detalle:{
-    
-    border: none;
-}
-
-#detalle:none {
-    border: 0ch;
-    border-bottom:1px solid #28a745;
-    }*/
+  #elemento {
+    color: #fff;
+    text-decoration: none;
+    transition: .3s;
+  }
+  
+  #elemento:hover {
+    background-color: #eb8a8a;
+  }

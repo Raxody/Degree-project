@@ -20,15 +20,31 @@
 
 <head>
 
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
     
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/bootstrap-theme.css" rel="stylesheet">
-    <script src="js/jquery-3.1.1.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
+    
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+        integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous">
+    </script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+
+    <div class="menu"></div>
+    <script>
+    $(function() {
+        $(".menu").load("../navbar.php");
+    });
+    </script>
 
 </head>
 
@@ -78,11 +94,11 @@
                     <tr>
 
                         <td><?php echo $row['descripcion']; ?></td>
-                        <td><a href="modificar.php?descripcion=<?php echo $row['descripcion']; ?>"><span
-                                    class="glyphicon glyphicon-pencil"></span></a></td>
+                        <td><a href="modificar.php?descripcion=<?php echo $row['descripcion']; ?>">
+                        <img src="../images/editar.png" alt="" width="40" height="40"></a></td>
                         <td><a href="#" data-href="eliminar.php?descripcion=<?php echo $row['descripcion']; ?>"
-                                data-toggle="modal" data-target="#confirm-delete"><span
-                                    class="glyphicon glyphicon-trash"></span></a></td>
+                                data-toggle="modal" data-target="#confirm-delete">
+                                <img src="../images/delete.png" alt=""  width="40" height="40"></a></td>
                     </tr>
                     <?php } ?>
                 </tbody>
