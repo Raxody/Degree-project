@@ -22,13 +22,13 @@
 
 <html lang="es">
 
-<head> 
+<head>
 
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    
+
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
         integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
@@ -49,11 +49,11 @@
 
 </head>
 
+
+
 <body>
 
-    <div class="container" style ="text-align: center; ">
-        <br>
-        <br>
+    <div class="container" style="text-align: center; ">
         <br>
         <br>
         <div class="imagen">
@@ -61,26 +61,27 @@
         </div>
 
         <br>
-        <div class="row">
             <form action="<?php $_SERVER['PHP_SELF']; ?>" method="POST">
-                    <div class="col-sm-8">
+
+                <div class="row">
+                    <div class="col">
                         <input type="text" id="criterio" name="criterio" class="form-control" />
                     </div>
-                    <div class="col-sm-2">
-                        <input type="image" id="enviar" name="enviar" value="Buscar" src="../images/buscar.png"
-                            alt="Ingresar didáctica" />
+                    <div class="col">
+                    <input type="image" id="enviar" name="enviar" value="Buscar" src="../images/buscar.png"
+                        alt="Ingresar didáctica" />
                     </div>
-
-                <div class="col-sm-2">
-                    <a href="nuevo.php"><img src="../images/agregar.png" alt=""  ></a>
+                    <div class="col">
+                    <a href="nuevo.php"><img src="../images/agregar.png" alt=""></a>
+                    </div>
                 </div>
+     
             </form>
 
-        </div>
 
         <br>
 
-        
+
 
         <div class="table-responsive">
             <table class="table table-striped table-hover ">
@@ -99,9 +100,10 @@
                         <td><?php echo $row['espacio']; ?></td>
                         <td><?php echo $row['profesor']; ?></td>
                         <td><?php echo $row['didactica']; ?></td>
-                        <td><a href="#" data-href="eliminar.php?codigoProfesor=<?php echo $row['codigoProfesor'];?>&codigoEspacio=<?php echo $row['codigoEspacio'];?>&didactica=<?php echo $row['didactica'];?>"
-                                data-toggle="modal" data-target="#confirm-delete"><span
-                                    class="glyphicon glyphicon-trash"></span></a></td>
+                        <td><a href="#"
+                                data-href="eliminar.php?codigoProfesor=<?php echo $row['codigoProfesor'];?>&codigoEspacio=<?php echo $row['codigoEspacio'];?>&didactica=<?php echo $row['didactica'];?>"
+                                data-toggle="modal" data-target="#confirm-delete"><img src="../images/delete.png" alt=""
+                                    width="40" height="40"></a></td>
                     </tr>
                     <?php } ?>
                 </tbody>

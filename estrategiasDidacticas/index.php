@@ -7,10 +7,10 @@
 	{
 		$descripcion = $_POST['descripcion'];
 		if( !empty($descripcion)){
-			$where = "WHERE descripcion LIKE '%$descripcion%'";
+			$where = "and descripcion LIKE '%$descripcion%'";
 		}
 	}
-	$sql = "SELECT * FROM res_didactica $where";
+	$sql = "SELECT * FROM res_didactica WHERE detalle != '' and descripcion != '' $where ";
 	$resultado = $mysqli->query($sql);
 ?>
 
@@ -18,14 +18,14 @@
 
 <html lang="es">
 
-<head> 
+<head>
 
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 
-    <link rel="stylesheet" href="./css/styleIndex.css">    
+    <link rel="stylesheet" href="./css/styleIndex.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
         integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
@@ -36,8 +36,11 @@
     </script>
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"
         integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+        
+        
+		<script src="js/bootstrap.min.js"></script>	
 
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
+    
 
     </script>
 
@@ -53,55 +56,39 @@
 
 <body>
 
-<script>
-swal({
-  buttons: {
-    cancel: true,
-    confirm: "Confirm",
-    roll: {
-      text: "Do a barrell roll!",
-      value: "roll",
-    },
-  },
-});
-</script>
-
-    <div class="container" style ="text-align: center; ">
-        <br>
-        <br>
+    <div class="container" style="text-align: center; ">
         <br>
         <br>
         <div class="imagen">
             <img src="../images/estrategiasDidacticasHorizonal.png" class="img-fluid" alt="Ingresar didáctica">
         </div>
-
         <br>
-        <div class="row">
-            <form action="<?php $_SERVER['PHP_SELF']; ?>" method="POST">
-                    <div class="col-sm-8">
-                        <input type="text" id="descripcion" name="descripcion" class="form-control" />
-                    </div>
-                    <div class="col-sm-2">
-                        <input type="image" id="enviar" name="enviar" value="Buscar" src="../images/buscar.png"
-                            alt="Ingresar didáctica" />
-                    </div>
+        <form action="<?php $_SERVER['PHP_SELF']; ?>" method="POST">
 
-                <div class="col-sm-2">
-                    <a href="nuevo.php"><img src="../images/agregar.png" alt=""  ></a>
+            <div class="row">
+                <div class="col">
+                    <input type="text" id="descripcion" name="descripcion" class="form-control" />
                 </div>
-            </form>
-
-        </div>
-
+                <div class="col">
+                    <input type="image" id="enviar" name="enviar" value="Buscar" src="../images/buscar.png"
+                        alt="Ingresar didáctica" />
+                </div>
+                <div class="col">
+                    <a href="nuevo.php"><img src="../images/agregar.png" alt=""></a>
+                </div>
+            </div>
+        </form>
         <br>
 
-        
+
 
         <div class="table-responsive">
             <table class="table table-striped table-hover ">
                 <thead>
                     <tr>
                         <th>Nombre didáctica</th>
+                        <th></th>
+                        <th></th>
                     </tr>
                 </thead>
 
@@ -111,10 +98,10 @@ swal({
 
                         <td><?php echo $row['descripcion']; ?></td>
                         <td><a href="modificar.php?descripcion=<?php echo $row['descripcion']; ?>">
-                        <img src="../images/editar.png" alt="" width="40" height="40"></a></td>
+                                <img src="../images/editar.png" alt="" width="40" height="40"></a></td>
                         <td><a href="#" data-href="eliminar.php?descripcion=<?php echo $row['descripcion']; ?>"
                                 data-toggle="modal" data-target="#confirm-delete">
-                                <img src="../images/delete.png" alt=""  width="40" height="40"></a></td>
+                                <img src="../images/delete.png" alt="" width="40" height="40"></a></td>
                     </tr>
                     <?php } ?>
                 </tbody>

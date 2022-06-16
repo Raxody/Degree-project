@@ -24,8 +24,8 @@
 #detalle{
     height: 200px;
     color: black;
-    background-color: #fdeaeb;
     border: none;
+    background-color: #fdeaeb;
     border-bottom: 0.5px solid rgba(101, 90, 90, 0.944);
 
 }

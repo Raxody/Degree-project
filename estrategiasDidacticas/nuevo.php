@@ -1,16 +1,3 @@
-<?php
-	require '../environmentConexion.php';
-    if(!empty($_POST) )
-	{
-	$descripcion = $_POST['descripcion'];
-	$detalle = $_POST['detalle'];
-    $sql = "INSERT INTO res_didactica (descripcion, detalle) VALUES ('$descripcion', '$detalle')";
-	$resultado = $mysqli->query($sql);
-
-    }
-	
-	
-?>
 
 <html lang="es">
 
@@ -20,7 +7,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Document</title>
-        <link rel="stylesheet" href="./css/styleNuevo.css">
+        <link rel="stylesheet" href="./css/styleNuevaEstrategiasDidacticas.css">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
             integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
@@ -45,14 +32,13 @@
 
 <body>
 
-
     <br>
     <br>
     <div class="container">
         <img src="../images/ingresarDidactica.png" class="img-fluid" alt="Ingresar didáctica">
         <br>
         <br>
-        <form class="form-horizontal" method="POST" action="<?php $_SERVER['PHP_SELF']; ?>" autocomplete="off">
+        <form class="form-horizontal" method="POST" action="guardar.php" autocomplete="off">
 
             <div class="row">
                 <div class="col-sm-2">
@@ -70,7 +56,7 @@
                 </div>
                 <div class="col-sm-10">
                     <textarea class="form-control" placeholder="Digita una descripción detallada sobre la didactica"
-                        id="detalle" name="detalle"></textarea>
+                        id="detalle" name="detalle" ></textarea>
                 </div>
             </div>
             <br>
@@ -78,26 +64,10 @@
                 <div class="form-group">
                     <a href="index.php" class="btn btn-default">Regresar</a>
                     &nbsp&nbsp&nbsp&nbsp
-                    <button type="submit" class="btn btn-success" onclick="hizoClick()">Guardar</button>
+                    <button type="submit" class="btn btn-success">Guardar</button>
                 </div>
             </form>
     </div>
-
-    <script>
-    function hizoClick() {
-        var descripcion = document.getElementById("descripcion").value;
-        var detalle = document.getElementById("detalle").value;
-        if (descripcion == "" || detalle == "") {
-          
-        } else {
-            
-        alert("dvsvxcv")
-            swal("Perfecto!", "Didáctica agregada con exito", "success")
-
-    }
-}
-
-    </script>
 </body>
 
 </html>

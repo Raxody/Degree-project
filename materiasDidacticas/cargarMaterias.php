@@ -51,8 +51,7 @@ $resultado = $mysqli->query($sql);
                     <h5 class="card-title"><?php  echo $row['codigo_condor'],": ", $row['nombre']?></h5>
                     <p class="card-text"><?php ?></p>
                     <div class="centrarBoton">
-                        <a href="../estrategiasDidacticas/index.php" class="btn btn-primary" value="<?php  echo $row['codigo_condor']?> ">Juantito papi
-                            rico</a>
+                        <a href="../estrategiasDidacticas/index.php" class="btn btn-primary" value="<?php  echo $row['codigo_condor']?> ">GOOOO!</a>
                     </div>
                 </div>
             </div>

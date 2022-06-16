@@ -1,12 +1,16 @@
-<?php	
-   require '../environmentConexion.php';
+<?php
+	require '../environmentConexion.php';
 
-	$descripcion = $_GET['descripcion'];
-	
-	$sql = "DELETE FROM res_didactica WHERE descripcion = '$descripcion'";
+	$descripcion = $_POST['descripcion'];
+	$detalle = $_POST['detalle'];
+	$resultado;
+	$sql = "INSERT INTO res_didactica (descripcion, detalle) VALUES ('$descripcion', '$detalle')";
 	$resultado = $mysqli->query($sql);
-	
+
+    
+
 ?>
+
 <html lang="es">
 
 <head>
@@ -15,7 +19,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-	
+
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
         integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
@@ -42,26 +46,36 @@
 </head>
 
 
+
+
 <body>
     <div class="container">
         <div class="row">
             <div class="row" style="text-align:center">
-                <?php if($resultado) { ?>
+
+			<?php if(empty($detalle) || empty($descripcion) ) { ?>
                 <script>
-                swal("¡GENIAL!", "Didáctica eliminada con exito", "success")
+                swal("¡ERROR!", "No hagas trampa, ve y completa todos los campos...", "error")
                     .then(() => {
-						window.location =  "/didacticas/estrategiasDidacticas/index.php";
+                        window.location = "/didacticas/estrategiasDidacticas/index.php";
+                    });
+                </script>
+                <?php }else if($resultado) { ?>
+                <script>
+                swal("¡GENIAL!", "Didáctica agregada con exito", "success")
+                    .then(() => {
+                        window.location = "/didacticas/estrategiasDidacticas/index.php";
                     });
                 </script>
 
                 <?php } else { ?>
-					<script>
-                swal("¡ERROR!", "Algo fallo al eliminar la didactica, cantacta con soporte", "error")
+                <script>
+                swal("¡ERROR!", "La didáctica que deseas ingresar ya se encuentra registrada", "error")
                     .then(() => {
-						window.location =  "/didacticas/estrategiasDidacticas/index.php";
+                        window.location = "/didacticas/estrategiasDidacticas/index.php";
                     });
                 </script>
-					
+
                 <?php } ?>
             </div>
         </div>
