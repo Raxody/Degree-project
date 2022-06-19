@@ -1,0 +1,9 @@
+#elemento {
+  color: #fff;
+  text-decoration: none;
+  transition: .3s;
+}
+
+#elemento:hover {
+  background-color: #eb8a8a;
+}

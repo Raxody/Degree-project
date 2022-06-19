@@ -10,7 +10,7 @@
 			$where = "and descripcion LIKE '%$descripcion%'";
 		}
 	}
-	$sql = "SELECT * FROM res_didactica WHERE detalle != '' and descripcion != '' $where ";
+	$sql = "SELECT * FROM res_didactica WHERE detalle != '' and descripcion != '' $where ORDER BY descripcion ASC";
 	$resultado = $mysqli->query($sql);
 ?>
 
@@ -25,7 +25,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 
-    <link rel="stylesheet" href="./css/styleIndex.css">
+    <link rel="stylesheet" href="./css/styleEstrategiasDidacticas.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
         integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
@@ -37,12 +37,7 @@
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"
         integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
         
-        
 		<script src="js/bootstrap.min.js"></script>	
-
-    
-
-    </script>
 
 
     <div class="menu"></div>
@@ -74,7 +69,7 @@
                         alt="Ingresar didáctica" />
                 </div>
                 <div class="col">
-                    <a href="nuevo.php"><img src="../images/agregar.png" alt=""></a>
+                    <a href="./nuevoEstrategiasDidacticas.php"><img src="../images/agregar.png" alt=""></a>
                 </div>
             </div>
         </form>
@@ -97,9 +92,9 @@
                     <tr>
 
                         <td><?php echo $row['descripcion']; ?></td>
-                        <td><a href="modificar.php?descripcion=<?php echo $row['descripcion']; ?>">
+                        <td><a href="./modificarEstrategiasDidacticas.php?descripcion=<?php echo $row['descripcion']; ?>">
                                 <img src="../images/editar.png" alt="" width="40" height="40"></a></td>
-                        <td><a href="#" data-href="eliminar.php?descripcion=<?php echo $row['descripcion']; ?>"
+                        <td><a href="#" data-href="./eliminarEstrategiasDidacticas.php?descripcion=<?php echo $row['descripcion']; ?>"
                                 data-toggle="modal" data-target="#confirm-delete">
                                 <img src="../images/delete.png" alt="" width="40" height="40"></a></td>
                     </tr>

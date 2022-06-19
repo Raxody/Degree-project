@@ -1,14 +1,14 @@
 <?php
 	require '../environmentConexion.php';
 
-	$sqlProfesores = "SELECT * FROM res_profesor";
+	$sqlProfesores = "SELECT * FROM res_profesor ORDER BY nombre ASC";
 	$resultadoProfesores = $mysqli->query($sqlProfesores);
 
 	
-	$sqlDidacticas = "SELECT * FROM res_didactica";
+	$sqlDidacticas = "SELECT * FROM res_didactica ORDER BY descripcion ASC";
 	$resultadoDidacticas = $mysqli->query($sqlDidacticas);
 
-	$sqlEspacio = "SELECT * FROM res_espacio";
+	$sqlEspacio = "SELECT * FROM res_espacio ORDER BY nombre ASC";
 	$resultadoEspacio = $mysqli->query($sqlEspacio);
 ?>
 
@@ -20,7 +20,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="css/styleNuevo.css">
+    <link rel="stylesheet" href="./css/styleNuevoAsignacionDidacticas.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
         integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
@@ -43,56 +43,49 @@
 
 <body>
               
-    <br>
-    <br>
+
     <div class="container">
         <img src="../images/ingresarDidactica.png" class="img-fluid" alt="Ingresar didáctica">
-        <br>
-        <br>
-        <form class="form-horizontal" method="POST" action="guardar.php" autocomplete="off">
+        <form class="form-horizontal" method="POST" action="./guardarAsignacionDidacticas.php" autocomplete="off">
 
             <div class="input-group mb-3">
                 <div class="input-group-prepend">
-                    <label class="input-group-text" for="inputGroupSelect01">Options</label>
+                    <label class="input-group-text" for="profesor">Escoge profesor</label>
                 </div>
-
-                <select class="custom-select" id="inputGroupSelect01" require>
-                    <option selected>Escoge profesor</option>
+                <select  class="custom-select" id="profesor" name="profesor" require>
                     <?php while($row = $resultadoProfesores->fetch_array(MYSQLI_ASSOC)) { ?>
-                    <option><?php echo $row['nombre']; ?></option>
+                    <option value="<?php echo $row['codigo'];?>"><?php echo $row['nombre']," ", $row['apellido']?></option>
                     <?php } ?>
                 </select>
             </div>
             <br>
             <div class="input-group mb-3">
                 <div class="input-group-prepend">
-                    <label class="input-group-text" for="inputGroupSelect01">Options</label>
+                    <label class="input-group-text" for="inputGroupSelect01">Escoge didáctica</label>
                 </div>
-                <select class="custom-select" id="inputGroupSelect01" require>
-                    <option selected>Escoge didáctica</option>
+                <select class="custom-select" id="didactica" name="didactica" require>
                     <?php while($row = $resultadoDidacticas->fetch_array(MYSQLI_ASSOC)) { ?>
-                    <option><?php echo $row['descripcion']; ?></option>
+                    <option value="<?php echo $row['descripcion'];?>"><?php echo $row['descripcion']; ?></option>
                     <?php } ?>
                 </select>
             </div>
             <br>
             <div class="input-group mb-3">
                 <div class="input-group-prepend">
-                    <label class="input-group-text" for="inputGroupSelect01">Options</label>
+                    <label class="input-group-text" for="espacio">Escoge materia</label>
                 </div>
-                <select class="custom-select" id="inputGroupSelect01" require>
-                    <option selected>Escoge materia</option>
+                <select class="custom-select" id="espacio" name="espacio" require>
                     <?php while($row = $resultadoEspacio->fetch_array(MYSQLI_ASSOC)) { ?>
-                    <option><?php echo $row['nombre']; ?></option>
+                    <option value="<?php echo $row['codigo'];?>"><?php echo $row['nombre']; ?></option>
                     <?php } ?>
                 </select>
             </div>
             <br>
             <form class="form-floating">
                 <div class="form-group">
-                    <a href="index.php" class="btn btn-default">VER DESCRIPCIONES DIDÁCTICAS</a>
+                    <a href="../estrategiasDidacticas/estrategiasDidacticas.php" class="btn btn-default">VER DESCRIPCIONES DIDÁCTICAS</a>
                     &nbsp&nbsp&nbsp&nbsp
-                    <a href="../estrategiasDidacticas/index.php" class="btn btn-default">Regresar</a>
+                    <a href="./asignacionDidacticas.php" class="btn btn-default">Regresar</a>
                     &nbsp&nbsp&nbsp&nbsp
                     <button type="submit" class="btn btn-success">Guardar</button>
                 </div>

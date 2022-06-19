@@ -1,5 +1,5 @@
 <html>
-<link rel="stylesheet" href="/navbar/style.css">
+
 <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #E57373;">
   <a class="navbar-brand" href="https://www.instagram.com/universidaddistrital/" target="_blank" rel="noopener"><img src="/didacticas/images/logofinal.jpg" width="40px" height="40px" alt="ceiba"></a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -21,9 +21,9 @@
         <div class="dropdown-menu " style="background-color: #E57373; text-align: center;" >
           <a id="elemento" name="elemento" href="/didacticas/materiasDidacticas/cargarMaterias.php">Ver</a>
           <br>
-          <a id="elemento" name="elemento" href="/didacticas/estrategiasDidacticas/index.php">Agregar</a>
+          <a id="elemento" name="elemento" href="/didacticas/estrategiasDidacticas/estrategiasDidacticas.php">Agregar</a>
           <br>
-          <a id="elemento" name="elemento" href="/didacticas/asignacionDidacticas/index.php">Asignar</a>
+          <a id="elemento" name="elemento" href="/didacticas/asignacionDidacticas/asignacionDidacticas.php">Asignar</a>
         </div>
       </li>
 

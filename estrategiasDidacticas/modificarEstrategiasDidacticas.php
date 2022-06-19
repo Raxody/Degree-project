@@ -40,13 +40,10 @@
 
 <body>
 
-    <br>
-    <br>
+
     <div class="container">
         <img src="../images/modificarDidactica.png" class="img-fluid" alt="Ingresar didáctica">
-        <br>
-        <br>
-        <form class="form-floating" method="POST" action="update.php" autocomplete="off">
+        <form class="form-floating" method="POST" action="./updateEstrategiasDidacticas.php" autocomplete="off">
 
             <div class="row">
                 <div class="col-sm-2">
@@ -71,7 +68,7 @@
             </div>
             <br>
             <div class="form-group">
-                <a href="index.php" class="btn btn-default">Regresar</a>
+                <a href="./estrategiasDidacticas.php" class="btn btn-default">Regresar</a>
                 &nbsp&nbsp&nbsp&nbsp
                 <button type="submit" class="btn btn-success">Actualizar</button>
             </div>

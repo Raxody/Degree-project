@@ -1,12 +1,17 @@
-﻿<?php
+<?php
 
 require '../environmentConexion.php';
 
-$sql="SELECT * FROM res_espacio";
+$codigoProfesor = $_POST['codigoProfesor'];
+$codigoMateria = $_POST['codigoMateria'];
+
+
+$sql="SELECT d.* FROM res_didactica AS d,res_espacio AS e,res_asignacion_didactica AS a,res_profesor AS p  
+WHERE e.codigo = a.codigo_espacio AND p.codigo = a.codigo_profesor AND d.descripcion = a.descripcion_didactica
+AND e.codigo = $codigoMateria and p.codigo = $codigoProfesor";
 
 $resultado = $mysqli->query($sql);
 ?>
-
 
 <!DOCTYPE html>
 <html>
@@ -40,27 +45,10 @@ $resultado = $mysqli->query($sql);
 <body>
     <br>
     <br>
-
-    <div class="container" style="text-align: right; max-width: 90%;">
-        <div class="container-fluid d-flex justify-content-center">
-            <form class="form-horizontal" method="POST" action="./materiasSegunProfesor.php" autocomplete="off">
-                <div class="row d-flex justify-content-center">
-                    <?php while($row = $resultado->fetch_array(MYSQLI_ASSOC)) {?>
-                    <div class="card" style="width: 18rem;">
-                        <img class="card-img-top" src="../images/estrategiasDidacticas.png" alt="Card image cap">
-                        <div class="card-body">
-                            <h5 class="card-title"><?php echo $row['nombre']?></h5>
-                            <div class="centrarBoton">
-                                
-                                <button type="submit" class="btn btn-danger" id="codigo" name="codigo"
-                                    value="<?php  echo $row['codigo']?> ">GOOO!</button>
-                            </div>
-                        </div>
-                    </div>
-                    <?php } ?>
-                </div>
-        </div>
-    </div>
+    <?php while($row = $resultado->fetch_array(MYSQLI_ASSOC)) {?>
+    <h1> <?php  echo $row['descripcion']?>/////////////</h1>
+    <h1> <?php  echo $row['detalle']?></h1>
+    <?php } ?>
     </form>
 </body>
 

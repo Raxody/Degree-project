@@ -3,12 +3,11 @@
 
 	$descripcion = $_POST['descripcion'];
 	$detalle = $_POST['detalle'];
-	$resultado;
-	$sql = "INSERT INTO res_didactica (descripcion, detalle) VALUES ('$descripcion', '$detalle')";
-	$resultado = $mysqli->query($sql);
-
-    
-
+	
+	if(!empty($detalle)){
+		$sql = "UPDATE res_didactica SET detalle='$detalle' WHERE descripcion = '$descripcion'";
+		$resultado = $mysqli->query($sql);
+	}
 ?>
 
 <html lang="es">
@@ -45,41 +44,35 @@
 
 </head>
 
-
-
-
-<body>
+	<body>
     <div class="container">
         <div class="row">
             <div class="row" style="text-align:center">
 
-			<?php if(empty($detalle) || empty($descripcion) ) { ?>
+			<?php if(empty($detalle)) { ?>
                 <script>
                 swal("¡ERROR!", "No hagas trampa, ve y completa todos los campos...", "error")
                     .then(() => {
-                        window.location = "/didacticas/estrategiasDidacticas/index.php";
+                        window.location = "/didacticas/estrategiasDidacticas/estrategiasDidacticas.php";
                     });
                 </script>
                 <?php }else if($resultado) { ?>
                 <script>
-                swal("¡GENIAL!", "Didáctica agregada con exito", "success")
+                swal("¡GENIAL!", "Didáctica modificada con exito", "success")
                     .then(() => {
-                        window.location = "/didacticas/estrategiasDidacticas/index.php";
+                        window.location = "/didacticas/estrategiasDidacticas/estrategiasDidacticas.php";
                     });
                 </script>
-
-                <?php } else { ?>
-                <script>
-                swal("¡ERROR!", "La didáctica que deseas ingresar ya se encuentra registrada", "error")
-                    .then(() => {
-                        window.location = "/didacticas/estrategiasDidacticas/index.php";
-                    });
-                </script>
-
                 <?php } ?>
             </div>
         </div>
     </div>
 </body>
+
+
+
+
+
+
 
 </html>

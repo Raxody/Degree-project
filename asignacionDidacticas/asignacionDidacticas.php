@@ -8,13 +8,13 @@
 		$criterio = $_POST['criterio'];
 		if( !empty($criterio)){
 			$where = "WHERE e.nombre LIKE '%$criterio%' or p.nombre LIKE '%$criterio%'
-            or a.descripcion_didactica LIKE '%$criterio%'";
+            or a.descripcion_didactica LIKE '%$criterio%' ";
 		}
 	}
 	$sql = "SELECT e.nombre AS espacio,p.nombre AS profesor,a.descripcion_didactica AS didactica,
      e.codigo AS codigoEspacio,p.codigo AS codigoProfesor FROM res_espacio AS e
      JOIN res_asignacion_didactica AS a ON (e.codigo = a.codigo_espacio)
-     JOIN res_profesor AS p ON (p.codigo = a.codigo_profesor) $where";
+     JOIN res_profesor AS p ON (p.codigo = a.codigo_profesor) $where ORDER BY p.codigo ASC, e.codigo ASC";
 	$resultado = $mysqli->query($sql);
 ?>
 
@@ -29,6 +29,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 
+    <link rel="stylesheet" href="./css/styleAsignacionDidacticas.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
         integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
@@ -40,6 +41,8 @@
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"
         integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 
+        <script src="js/bootstrap.min.js"></script>	
+        
     <div class="menu"></div>
     <script>
     $(function() {
@@ -72,7 +75,7 @@
                         alt="Ingresar didáctica" />
                     </div>
                     <div class="col">
-                    <a href="nuevo.php"><img src="../images/agregar.png" alt=""></a>
+                    <a href="./nuevoAsignacionDidacticas.php"><img src="../images/agregar.png" alt=""></a>
                     </div>
                 </div>
      
@@ -90,6 +93,7 @@
                         <th>Espacio</th>
                         <th>Profesor</th>
                         <th>didactica</th>
+                        <th></th>
                     </tr>
                 </thead>
 
@@ -101,7 +105,7 @@
                         <td><?php echo $row['profesor']; ?></td>
                         <td><?php echo $row['didactica']; ?></td>
                         <td><a href="#"
-                                data-href="eliminar.php?codigoProfesor=<?php echo $row['codigoProfesor'];?>&codigoEspacio=<?php echo $row['codigoEspacio'];?>&didactica=<?php echo $row['didactica'];?>"
+                                data-href="./eliminarAsignacionDidacticas.php?codigoProfesor=<?php echo $row['codigoProfesor'];?>&codigoEspacio=<?php echo $row['codigoEspacio'];?>&didactica=<?php echo $row['didactica'];?>"
                                 data-toggle="modal" data-target="#confirm-delete"><img src="../images/delete.png" alt=""
                                     width="40" height="40"></a></td>
                     </tr>

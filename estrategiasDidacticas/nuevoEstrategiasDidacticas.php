@@ -32,13 +32,11 @@
 
 <body>
 
-    <br>
-    <br>
+
     <div class="container">
         <img src="../images/ingresarDidactica.png" class="img-fluid" alt="Ingresar didáctica">
-        <br>
-        <br>
-        <form class="form-horizontal" method="POST" action="guardar.php" autocomplete="off">
+  
+        <form class="form-horizontal" method="POST" action="./guardarEstrategiasDidacticas.php" autocomplete="off">
 
             <div class="row">
                 <div class="col-sm-2">
@@ -46,6 +44,7 @@
                 </div>
                 <div class="col-sm-10">
                     <input type="text" class="form-control" id="descripcion" name="descripcion"
+                    style="text-transform:lowercase;"
                         placeholder="Ingresa el nombre de la didactica" required>
                 </div>
             </div>
@@ -56,13 +55,13 @@
                 </div>
                 <div class="col-sm-10">
                     <textarea class="form-control" placeholder="Digita una descripción detallada sobre la didactica"
-                        id="detalle" name="detalle" ></textarea>
+                        id="detalle" name="detalle" required></textarea>
                 </div>
             </div>
             <br>
             <form class="form-floating">
                 <div class="form-group">
-                    <a href="index.php" class="btn btn-default">Regresar</a>
+                    <a href="./estrategiasDidacticas.php" class="btn btn-default">Regresar</a>
                     &nbsp&nbsp&nbsp&nbsp
                     <button type="submit" class="btn btn-success">Guardar</button>
                 </div>

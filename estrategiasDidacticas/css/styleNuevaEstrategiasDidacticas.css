@@ -1,9 +1,12 @@
 .container{
-    text-align: center;
-    margin: 0%;
-    padding: 0%;
-    background-color: #fdeaeb;
+  text-align: center;
+  margin: 0%;
+  padding: 0%;
+  background-color: #fdeaeb;
+  position: relative;
+  top: 15%;
 }
+
 
 #descripcion{
   background-color: #fdeaeb;
