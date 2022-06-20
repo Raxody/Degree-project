@@ -45,7 +45,16 @@ $resultado = $mysqli->query($sql);
 </head>
 
 
+
+
+
+
 <body>
+
+<div >
+<img src="../images/ud.png"  width="200" height="200">
+
+</div>
     <br>
     <br>
     <?php while($row = $resultado->fetch_array(MYSQLI_ASSOC)) {?>
