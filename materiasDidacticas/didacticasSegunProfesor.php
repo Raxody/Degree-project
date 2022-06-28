@@ -12,7 +12,7 @@ AND e.codigo = $codigoMateria and p.codigo = $codigoProfesor";
 
 $resultado = $mysqli->query($sql);
 
-$sql2 = "SELECT p.nombre AS profesor,p.apellido AS apellido, e.nombre AS materia FROM res_didactica AS d,res_espacio AS e,res_asignacion_didactica AS a,res_profesor AS p 
+$sql2 = "SELECT DISTINCT p.nombre AS profesor,p.apellido AS apellido, e.nombre AS materia FROM res_didactica AS d,res_espacio AS e,res_asignacion_didactica AS a,res_profesor AS p 
 WHERE e.codigo = a.codigo_espacio AND p.codigo = a.codigo_profesor AND d.descripcion = a.descripcion_didactica
 AND e.codigo = $codigoMateria and p.codigo = $codigoProfesor";
 
@@ -60,15 +60,14 @@ $resultado2 = $mysqli->query($sql2);
         <br>
         <?php while($row = $resultado2->fetch_array(MYSQLI_ASSOC)) {?>
         <h2>Reporte de didácticas de la materia <?php echo $row['materia']?> que dicta el profesor <?php echo $row['profesor']?> <?php echo $row['apellido']?> </h2>
-
-
+        <?php } ?>
         <div class="row">
             <div id="content" class="col-lg-12">
                 <a class="nada" href="./reporteDidacticasSegunProfesor.php?codigoMateria=<?php echo $codigoMateria?>&codigoProfesor=<?php  echo $codigoProfesor ?>">
                     <img src="../images/pdf.png" alt="" width="40" height="40">
                 </a>
             </div>
-            <?php } ?>
+           
             <br>
             <div class="table-responsive">
                 <table class="table table-striped table-hover ">

@@ -11,7 +11,7 @@ AND e.codigo = $codigoMateria";
 $resultado = $mysqli->query($sql);
 
 
-$sql2 = "SELECT nombre FROM res_espacio WHERE codigo = $codigoMateria";
+$sql2 = "SELECT DISTINCT nombre FROM res_espacio WHERE codigo = $codigoMateria";
 
 $resultado2 = $mysqli->query($sql2);
 ?>

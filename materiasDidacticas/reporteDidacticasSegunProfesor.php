@@ -12,7 +12,7 @@ AND e.codigo = $codigoMateria and p.codigo = $codigoProfesor";
 
 $resultado = $mysqli->query($sql);
 
-$sql2 = "SELECT p.nombre AS profesor,p.apellido AS apellido, e.nombre AS materia FROM res_didactica AS d,res_espacio AS e,res_asignacion_didactica AS a,res_profesor AS p 
+$sql2 = "SELECT DISTINCT p.nombre AS profesor,p.apellido AS apellido, e.nombre AS materia FROM res_didactica AS d,res_espacio AS e,res_asignacion_didactica AS a,res_profesor AS p 
 WHERE e.codigo = a.codigo_espacio AND p.codigo = a.codigo_profesor AND d.descripcion = a.descripcion_didactica
 AND e.codigo = $codigoMateria and p.codigo = $codigoProfesor";
 
