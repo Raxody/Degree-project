@@ -9,6 +9,10 @@ WHERE e.codigo = a.codigo_espacio AND p.codigo = a.codigo_profesor AND d.descrip
 AND e.codigo = $codigoMateria";
 
 $resultado = $mysqli->query($sql);
+
+$sql2 = "SELECT nombre FROM res_espacio WHERE codigo = $codigoMateria";
+
+$resultado2 = $mysqli->query($sql2);
 ?>
 
 <html lang="es">
@@ -20,7 +24,7 @@ $resultado = $mysqli->query($sql);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 
-    <link rel="stylesheet" href="./css/styleEstrategiasDidacticas.css">
+    <link rel="stylesheet" href="../materiasDidacticas/css/styleMostrarParaPDFS.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
         integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
@@ -31,8 +35,11 @@ $resultado = $mysqli->query($sql);
     </script>
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"
         integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-        
-		<script src="js/bootstrap.min.js"></script>	
+
+    <script src="js/bootstrap.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500&family=Raleway:ital,wght@0,700;1,400&display=swap" rel="stylesheet">
 
 
     <div class="menu"></div>
@@ -44,24 +51,39 @@ $resultado = $mysqli->query($sql);
 
 </head>
 
-
-
-
-
-
 <body>
+    <div class="container">
+        <br>
+        <?php while($row = $resultado2->fetch_array(MYSQLI_ASSOC)) {?>
+        <h2>Reporte de didácticas de la materia <?php echo $row['nombre']?></h2>
 
-<div >
-<img src="../images/ud.png"  width="200" height="200">
 
-</div>
-    <br>
-    <br>
-    <?php while($row = $resultado->fetch_array(MYSQLI_ASSOC)) {?>
-    <h1> <?php  echo $row['descripcion']?>/////////////</h1>
-    <h1> <?php  echo $row['detalle']?></h1>
-    <?php } ?>
-    </form>
+        <div class="row">
+            <div id="content" class="col-lg-12">
+                <a class="nada" href="./reporteDidacticasSegunMateria.php?codigoMateria=<?php echo $codigoMateria;?>">
+                    <img src="../images/pdf.png" alt="" width="40" height="40">
+                </a>
+
+            </div>
+            <?php } ?>
+            <br>
+            <div class="table-responsive">
+                <table class="table table-striped table-hover ">
+
+
+                    <thead>
+                        <th>Descripcion</th>
+                        <th>Detalle</th>
+                    </thead>
+                    <?php while($row = $resultado->fetch_array(MYSQLI_ASSOC)) {?>
+                    <tr>
+                        <td><?php echo $row['descripcion']?> </td>
+                        <td><?php echo $row['detalle']?></td>
+                    </tr>
+                    <?php } ?>
+                </table>
+            </div>
+        </div>
 </body>
 
 </html>

@@ -33,6 +33,14 @@
   text-transform: uppercase;
 }
 
+#espacio{
+  text-transform: uppercase;
+}
+
+.espacio{
+  text-transform: uppercase;
+}
+
 #elemento {
   color: #fff;
   text-decoration: none;

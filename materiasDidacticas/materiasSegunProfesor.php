@@ -2,7 +2,7 @@
 
 require '../environmentConexion.php';
 
-$codigoMateria = $_POST['codigo'];
+$codigoMateria = $_GET['codigo'];
 
 $sql="SELECT DISTINCT p.nombre AS profesor, p.apellido profesorApellido, p.codigo AS codigoProfesor,
 e.codigo AS codigoMateria FROM res_espacio AS e
@@ -56,8 +56,8 @@ $resultado = $mysqli->query($sql);
                                 <?php  echo $row['profesor']," ", $row['profesorApellido']?></h5>
                             <input type="hidden" id="codigoMateria" name="codigoMateria" value="<?php echo $codigoMateria?>">
                             <div class="centrarBoton">
-                                <button type="submit" class="btn btn-danger" id="codigoProfesor" name="codigoProfesor"
-                                    value="<?php  echo $row['codigoProfesor']?> ">VER</button>
+                                    <a  class="btn btn-danger" href="./didacticasSegunProfesor.php?codigoMateria=<?php echo $codigoMateria;?>&codigoProfesor=<?php  echo $row['codigoProfesor'];?>"
+                               >VER</a>
                             </div>
                         </div>
                     </div>
@@ -69,7 +69,7 @@ $resultado = $mysqli->query($sql);
                     <h5 class="card-title">Didácticas reunidas</h5>
                     <div class="centrarBoton">
                         <a  class="btn btn-danger" href="./didacticasSegunMateria.php?codigoMateria=<?php echo $codigoMateria?>"
-                               >añañin</a>
+                               >VER</a>
                
                         
                     </div>

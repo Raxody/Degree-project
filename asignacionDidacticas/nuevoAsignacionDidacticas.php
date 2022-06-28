@@ -74,7 +74,7 @@
                 <div class="input-group-prepend">
                     <label class="input-group-text" for="espacio">Escoge materia</label>
                 </div>
-                <select class="custom-select" id="espacio" name="espacio" require>
+                <select class="custom-select" class="espacio" id="espacio" name="espacio" require>
                     <?php while($row = $resultadoEspacio->fetch_array(MYSQLI_ASSOC)) { ?>
                     <option value="<?php echo $row['codigo'];?>"><?php echo $row['nombre']; ?></option>
                     <?php } ?>

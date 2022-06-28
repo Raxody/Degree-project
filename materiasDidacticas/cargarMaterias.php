@@ -43,7 +43,6 @@ $resultado = $mysqli->query($sql);
 
     <div class="container" style="text-align: right; max-width: 90%;">
         <div class="container-fluid d-flex justify-content-center">
-            <form class="form-horizontal" method="POST" action="./materiasSegunProfesor.php" autocomplete="off">
                 <div class="row d-flex justify-content-center">
                     <?php while($row = $resultado->fetch_array(MYSQLI_ASSOC)) {?>
                     <div class="card" style="width: 18rem;">
@@ -51,9 +50,8 @@ $resultado = $mysqli->query($sql);
                         <div class="card-body">
                             <h5 class="card-title"><?php echo $row['nombre']?></h5>
                             <div class="centrarBoton">
-                                
-                                <button type="submit" class="btn btn-danger" id="codigo" name="codigo"
-                                    value="<?php  echo $row['codigo']?> ">GOOO!</button>
+                            <a  class="btn btn-danger" href="./materiasSegunProfesor.php?codigo=<?php  echo $row['codigo']?> "
+                               >GOOO!</a>
                             </div>
                         </div>
                     </div>
@@ -61,7 +59,6 @@ $resultado = $mysqli->query($sql);
                 </div>
         </div>
     </div>
-    </form>
 </body>
 
 </html>

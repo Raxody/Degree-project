@@ -33,9 +33,16 @@ ob_start();
 $options->set('isRemoteEnabled', TRUE);
 
 $dompdf = new DOMPDF($options);
-$dompdf->load_html($html);
-$dompdf->render();
-$dompdf->stream("Documento.pdf",array('Attachment'=> FALSE));
 
 ?>
+<?php
 
+
+ob_start();
+include "../images/ud.png";
+$html = ob_get_clean();
+$dompdf->loadHtml($html);
+$dompdf->render();
+header("Content-type: application/pdf");
+header("Content-Disposition: inline; filename=documento.pdf");
+echo $dompdf->output();
