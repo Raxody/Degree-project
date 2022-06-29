@@ -45,7 +45,8 @@
               
 
     <div class="container">
-        <img src="../images/ingresarDidactica.png" class="img-fluid" alt="Ingresar didáctica">
+        <img src="../images/asignarEstrategiasDidacticas.png" class="img-fluid" alt="Ingresar didáctica">
+        <br>
         <form class="form-horizontal" method="POST" action="./guardarAsignacionDidacticas.php" autocomplete="off">
 
             <div class="input-group mb-3">
