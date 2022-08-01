@@ -1,8 +1,8 @@
-﻿<?php
+<?php
 
 require '../environmentConexion.php';
 
-$sql="SELECT * FROM res_espacio";
+$sql="SELECT * FROM res_didactica";
 
 $resultado = $mysqli->query($sql);
 ?>
@@ -16,7 +16,7 @@ $resultado = $mysqli->query($sql);
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="../materiasDidacticas/css/styleCargarMaterias.css">
+    <link rel="stylesheet" href="../didacticasMaterias/css/styleCargarDidacticas.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
         integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
@@ -48,9 +48,9 @@ $resultado = $mysqli->query($sql);
                     <div class="card" style="width: 18rem;">
                         <img class="card-img-top" src="../images/estrategiasDidacticas.png" alt="Card image cap">
                         <div class="card-body">
-                            <h5 class="card-title"><?php echo $row['nombre']?></h5>
+                            <h5 class="card-title"><?php echo $row['descripcion']?></h5>
                             <div class="centrarBoton">
-                            <a  class="btn btn-danger" href="./materiasSegunProfesor.php?codigo=<?php  echo $row['codigo']?> "
+                            <a  class="btn btn-danger" href="./espacioSegunDidactica.php?descripcion=<?php  echo $row['descripcion']?> "
                                >¡VAMOS!</a>
                             </div>
                         </div>

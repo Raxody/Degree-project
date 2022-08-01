@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 09-06-2022 a las 22:13:06
+-- Tiempo de generación: 09-07-2022 a las 01:53:46
 -- Versión del servidor: 10.4.22-MariaDB
 -- Versión de PHP: 7.4.27
 
@@ -202,8 +202,21 @@ INSERT INTO `estudiante` (`codigo`, `nombre`, `apellido`, `correo`) VALUES
 CREATE TABLE `res_asignacion_didactica` (
   `codigo_profesor` int(11) NOT NULL,
   `codigo_espacio` int(11) NOT NULL,
-  `codigo_didactica` bigint(20) UNSIGNED NOT NULL
+  `descripcion_didactica` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `res_asignacion_didactica`
+--
+
+INSERT INTO `res_asignacion_didactica` (`codigo_profesor`, `codigo_espacio`, `descripcion_didactica`) VALUES
+(10, 15, 'juegos'),
+(31, 15, 'talleres'),
+(70, 15, 'exposiciones'),
+(70, 15, 'juegos'),
+(70, 15, 'talleres'),
+(16, 26, 'talleres'),
+(66, 51, 'talleres');
 
 -- --------------------------------------------------------
 
@@ -1543,7 +1556,6 @@ INSERT INTO `res_componente` (`codigo`, `nombre`) VALUES
 --
 
 CREATE TABLE `res_didactica` (
-  `codigo` bigint(20) UNSIGNED NOT NULL,
   `descripcion` varchar(200) NOT NULL,
   `detalle` varchar(4055) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -1552,14 +1564,12 @@ CREATE TABLE `res_didactica` (
 -- Volcado de datos para la tabla `res_didactica`
 --
 
-INSERT INTO `res_didactica` (`codigo`, `descripcion`, `detalle`) VALUES
-(2, 'sdfsfaaaa', 'sdfsdf'),
-(3, 'sdfsfiiiiiiiiiiiiiiiiiiiiiiii', 'dfsdfsaaaaaaaaaaaaaaadfsdfsaaaaaaaaaaaaaaadfsdfsaaaaaaaaaaaaaaadfsdfsaaaaaaaaaaaaaaadfsdfsaaaaaaaaaaaaaaadfsdfsaaaaaaaaaaaaaaadfsdfsaaaaaaaaaaaaaaadfsdfsaaaaaaaaaaaaaaadfsdfsaaaaaaaaaaaaaaadfsdfsaaaaaaaaaaaaaaadfsdfsaaaaaaaaaaaaaaa'),
-(4, 'qqqqqqqqqqqq', '222222222222'),
-(5, 'juegos', 'explica interactivamente'),
-(7, 'ddddddddddddd', 'CXVBXVCXVC'),
-(8, 'asdadad', ''),
-(9, 'd', 'd');
+INSERT INTO `res_didactica` (`descripcion`, `detalle`) VALUES
+('debates', 'por medio del debate aprender y exponer sus ideas'),
+('exposiciones', 'aprender información y explicarla a sus compañeros'),
+('juegos', 'juegos de mesa para distraer y practicar'),
+('peliculas', 'contenido visual para entender'),
+('talleres', 'aprendizaje mediante talleres');
 
 -- --------------------------------------------------------
 
@@ -2918,9 +2928,9 @@ ALTER TABLE `estudiante`
 -- Indices de la tabla `res_asignacion_didactica`
 --
 ALTER TABLE `res_asignacion_didactica`
-  ADD PRIMARY KEY (`codigo_espacio`,`codigo_profesor`,`codigo_didactica`),
-  ADD UNIQUE KEY `codigo_didactica` (`codigo_didactica`),
-  ADD KEY `codigo_profesor` (`codigo_profesor`);
+  ADD PRIMARY KEY (`codigo_espacio`,`codigo_profesor`,`descripcion_didactica`),
+  ADD KEY `codigo_profesor` (`codigo_profesor`),
+  ADD KEY `descripcion_didactica` (`descripcion_didactica`);
 
 --
 -- Indices de la tabla `res_asignacion_herramientas_conceptuales`
@@ -2986,8 +2996,7 @@ ALTER TABLE `res_componente`
 -- Indices de la tabla `res_didactica`
 --
 ALTER TABLE `res_didactica`
-  ADD PRIMARY KEY (`codigo`),
-  ADD UNIQUE KEY `codigo` (`codigo`);
+  ADD PRIMARY KEY (`descripcion`);
 
 --
 -- Indices de la tabla `res_espacio`
@@ -3210,18 +3219,6 @@ ALTER TABLE `wp_y5c34k_wpforms_tasks_meta`
 --
 
 --
--- AUTO_INCREMENT de la tabla `res_asignacion_didactica`
---
-ALTER TABLE `res_asignacion_didactica`
-  MODIFY `codigo_didactica` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT de la tabla `res_didactica`
---
-ALTER TABLE `res_didactica`
-  MODIFY `codigo` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
-
---
 -- AUTO_INCREMENT de la tabla `wp_y5c34k_actionscheduler_actions`
 --
 ALTER TABLE `wp_y5c34k_actionscheduler_actions`
@@ -3352,7 +3349,7 @@ ALTER TABLE `carga_2022_3`
 ALTER TABLE `res_asignacion_didactica`
   ADD CONSTRAINT `res_asignacion_didactica_ibfk_1` FOREIGN KEY (`codigo_espacio`) REFERENCES `res_espacio` (`codigo`),
   ADD CONSTRAINT `res_asignacion_didactica_ibfk_2` FOREIGN KEY (`codigo_profesor`) REFERENCES `res_profesor` (`codigo`),
-  ADD CONSTRAINT `res_asignacion_didactica_ibfk_3` FOREIGN KEY (`codigo_didactica`) REFERENCES `res_didactica` (`codigo`);
+  ADD CONSTRAINT `res_asignacion_didactica_ibfk_3` FOREIGN KEY (`descripcion_didactica`) REFERENCES `res_didactica` (`descripcion`);
 
 --
 -- Filtros para la tabla `res_asignacion_herramientas_conceptuales`

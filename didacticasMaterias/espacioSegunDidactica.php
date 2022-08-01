@@ -1,12 +1,16 @@
-﻿<?php
+<?php
 
 require '../environmentConexion.php';
 
-$sql="SELECT * FROM res_espacio";
+$descripcion = $_GET['descripcion'];
+
+$sql="SELECT DISTINCT p.nombre AS profesor, p.apellido profesorApellido, d.descripcion AS descripcion,
+d.detalle AS detalle,e.nombre AS espacio FROM res_espacio AS e, res_didactica AS d, 
+res_asignacion_didactica AS a, res_profesor AS P WHERE a.descripcion_didactica = d.descripcion
+ AND a.codigo_espacio = e.codigo AND p.codigo = a.codigo_profesor AND d.descripcion = $descripcion";
 
 $resultado = $mysqli->query($sql);
 ?>
-
 
 <!DOCTYPE html>
 <html>
@@ -34,31 +38,30 @@ $resultado = $mysqli->query($sql);
         $(".menu").load("../navbar.php");
     });
     </script>
-
+    
 </head>
 
 <body>
     <br>
     <br>
-
-    <div class="container" style="text-align: right; max-width: 90%;">
-        <div class="container-fluid d-flex justify-content-center">
-                <div class="row d-flex justify-content-center">
-                    <?php while($row = $resultado->fetch_array(MYSQLI_ASSOC)) {?>
-                    <div class="card" style="width: 18rem;">
+    
+    <div class="container-fluid d-flex justify-content-center">
+    <form class="form-horizontal" method="POST" action="./didacticasSegunProfesor.php" autocomplete="off">
+        <div class="row col-lg-10 d-flex justify-content-center">
+            <?php while($row = $resultado->fetch_array(MYSQLI_ASSOC)) {?>
+                <div class="card" style="width: 18rem;">
                         <img class="card-img-top" src="../images/estrategiasDidacticas.png" alt="Card image cap">
                         <div class="card-body">
-                            <h5 class="card-title"><?php echo $row['nombre']?></h5>
-                            <div class="centrarBoton">
-                            <a  class="btn btn-danger" href="./materiasSegunProfesor.php?codigo=<?php  echo $row['codigo']?> "
-                               >¡VAMOS!</a>
-                            </div>
+                            <h5 class="card-title" >
+                                <?php  echo $row['profesor']," ", $row['profesorApellido']?></h5>
+                            <input type="hidden" id="codigoMateria" name="codigoMateria" value="<?php echo $codigoMateria?>">
+
                         </div>
                     </div>
-                    <?php } ?>
-                </div>
+            <?php } ?>
+            </form>
+
         </div>
     </div>
-</body>
 
-</html>
+</body>

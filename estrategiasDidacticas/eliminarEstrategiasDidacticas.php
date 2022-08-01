@@ -3,8 +3,11 @@
 
 	$descripcion = $_GET['descripcion'];
 	
+
+
 	$sql = "DELETE FROM res_didactica WHERE descripcion = '$descripcion'";
 	$resultado = $mysqli->query($sql);
+
 	
 ?>
 <html lang="es">
@@ -56,7 +59,7 @@
 
                 <?php } else { ?>
 					<script>
-                swal("¡ERROR!", "Algo fallo al eliminar la didactica, cantacta con soporte", "error")
+                swal("¡ERROR!", "Algo fallo al eliminar la didactica, cantacta con soporte o revisa si hay algun profesor con esa didactica asignada", "error")
                     .then(() => {
 						window.location =  "/didacticas/estrategiasDidacticas/estrategiasDidacticas.php";
                     });

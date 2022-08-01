@@ -19,7 +19,9 @@
         Didácticas
         </a>
         <div class="dropdown-menu " style="background-color: #E57373; text-align: center;" >
-          <a id="elemento" name="elemento" href="/didacticas/materiasDidacticas/cargarMaterias.php">Ver</a>
+          <a id="elemento" name="elemento" href="/didacticas/materiasDidacticas/cargarMaterias.php">Ver espacios</a>
+          <br>
+          <a id="elemento" name="elemento" href="/didacticas/didacticasMaterias/cargarDidacticas.php">Ver didácticas</a>
           <br>
           <a id="elemento" name="elemento" href="/didacticas/estrategiasDidacticas/estrategiasDidacticas.php">Agregar</a>
           <br>
