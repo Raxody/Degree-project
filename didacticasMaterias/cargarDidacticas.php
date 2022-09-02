@@ -2,7 +2,7 @@
 
 require '../environmentConexion.php';
 
-$sql="SELECT * FROM res_didactica";
+$sql="SELECT DISTINCT d.descripcion FROM res_didactica AS d JOIN res_asignacion_didactica AS a ON (d.descripcion = a.descripcion_didactica)";
 
 $resultado = $mysqli->query($sql);
 ?>

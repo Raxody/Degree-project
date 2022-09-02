@@ -4,7 +4,6 @@
 
 .card-title{
     text-align: center;
-    
 }
 
 
@@ -14,6 +13,7 @@ body{
 
 .row{
   background-color: #fdeaeb;
+  text-align: justify;
 }
 
 
@@ -37,6 +37,11 @@ text-align: center;
   background-color: #eb8a8a;
 }
 
-a{
-  
+h1{
+  background-color: #fdeaeb;
+}
+
+.mayusculas{
+  text-transform: uppercase;
+  color: aqua;
 }

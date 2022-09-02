@@ -1,7 +1,7 @@
 <html>
 
 <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #E57373;">
-  <a class="navbar-brand" href="https://www.instagram.com/universidaddistrital/" target="_blank" rel="noopener"><img src="/didacticas/images/logofinal.jpg" width="40px" height="40px" alt="ceiba"></a>
+  <a class="navbar-brand" href="https://www.instagram.com/universidaddistrital/" target="_blank" rel="noopener"><img src="/didacticas/images/logofinal.jpg" width="40px" height="40px" alt="ud"></a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
   <span class="navbar-toggler-icon"></span>
 </button>
