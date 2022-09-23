@@ -11,6 +11,13 @@ res_asignacion_didactica AS a, res_profesor AS p WHERE a.descripcion_didactica =
 
 $resultado = $mysqli->query($sql);
 
+$resultado1 = $mysqli->query($sql);
+
+$clases = array();
+
+while($clase=$resultado1->fetch_object()){
+   $clases[]=$clase;
+  }
 
 
 $sql2="SELECT p.detalle FROM res_didactica AS p WHERE p.descripcion = '$descripcion'";
@@ -40,6 +47,17 @@ $resultado2 = $mysqli->query($sql2);
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"
         integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 
+    <script type="text/javascript" src="../pdf/bootstrap/js/jquery.min.js"></script>
+    <script src="../pdf/jspdf/dist/jspdf.min.js"></script>
+    <script src="../pdf/js/jspdf.plugin.autotable.min.js"></script>
+    <meta charset="utf-8">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500&family=Raleway:ital,wght@0,700;1,400&display=swap"
+        rel="stylesheet">
+
     <div class="menu"></div>
     <script>
     $(function() {
@@ -54,15 +72,24 @@ $resultado2 = $mysqli->query($sql2);
     <br>
 
     <div class="container">
-        <?php while($row2 = $resultado2->fetch_array(MYSQLI_ASSOC)) {?>
+
         <div class="centrarBoton">
-        <h2 style="text-transform: uppercase; font-size: 35px;"><?php echo $descripcion?></h2>
+            <h2 style="text-transform: uppercase; font-size: 35px;"><?php echo $descripcion?></h2>
         </div>
-        
-        <p>La didáctica <?php echo $descripcion?> consiste en <?php echo $row2['detalle']?>
-            la utilizan los siguientes profesores con sus respectivos espacios:</p>
-        <?php } ?>
+
+        <?php while($row2 = $resultado2->fetch_array(MYSQLI_ASSOC)) {
+        $detalle = "La didáctica " . $descripcion . " consiste en " . $row2['detalle'] . " la utilizan los siguientes profesores con sus respectivos espacios:";
+        } ?>
         <br>
+        <p><?php echo $detalle?></p>
+        <div style="text-align: right;">
+            <div id="content" class="col-lg-12">
+                <button id="generarPDF" class="btn btn-default">
+                    <img src="../images/pdf.png" alt="" width="40" height="40">
+                </button>
+
+            </div>
+        </div>
         <div class="table-responsive">
             <table class="table table-striped table-hover ">
                 <thead>
@@ -78,6 +105,105 @@ $resultado2 = $mysqli->query($sql2);
             </table>
         </div>
 
+
     </div>
 
+    <script>
+        function convertirFraseConLongitudMenorALaMinima(textoParaModificar, longitudPermitida) {
+            for (var i = 0; i < longitudPermitida; i++) {
+                if (i >= textoParaModificar.length) {
+                    textoParaModificar += " ";
+                }
+            }
+            return textoParaModificar;
+        }
+
+        function convertirFraseConLongitudSuperiorALaMinima(textoParaModificar, longitudPermitida) {
+            var esEspacio = true;
+            var textoModificado = "";
+            for (var i = 0; i < textoParaModificar.length; i++) {
+                if (i % longitudPermitida != 0 && esEspacio) {
+                    textoModificado += textoParaModificar[i];
+                } else if (i == 0) {
+                    textoModificado += textoParaModificar[i];
+                } else {
+                    if (textoParaModificar[i] == " ") {
+                        textoModificado += "\n";
+                        esEspacio = true;
+                    } else {
+                        textoModificado += textoParaModificar[i];
+                        esEspacio = false;
+                    }
+                }
+            }
+            return textoModificado;
+        }
+
+        function convertirFraseParaFila(textoParaModificar, longitudPermitida) {
+            if (textoParaModificar.length < longitudPermitida) {
+                return convertirFraseConLongitudMenorALaMinima(textoParaModificar, longitudPermitida);
+            }
+            return convertirFraseConLongitudSuperiorALaMinima(textoParaModificar, longitudPermitida);
+        }
+
+        function centrarTitulo(textoParaModificar, longitudPermitida) {
+            var textoModificado = convertirFraseParaFila(textoParaModificar, longitudPermitida);
+
+            var saltosDeLinea = textoModificado.split("\n");
+            var cantidadEspaciosPorLiena = [];
+            for (var i = 0; i < saltosDeLinea.length; i++) {
+                var parteDeLaFrase = saltosDeLinea[i];
+                if (parteDeLaFrase.length < longitudPermitida) {
+                    cantidadEspaciosPorLiena.push(longitudPermitida - parteDeLaFrase.length);
+                } else {
+                    cantidadEspaciosPorLiena.push(0);
+                }
+            }
+            var mitadEspaciosPorLiena = [];
+            var espacios = "";
+            for (var i = 0; i < cantidadEspaciosPorLiena.length; i++) {
+                for (var j = 0; j < (cantidadEspaciosPorLiena[i] / 2); j++) {
+                    espacios += "  ";
+                }
+                mitadEspaciosPorLiena.push(espacios);
+            }
+            textoModificado = "";
+            for (var i = 0; i < mitadEspaciosPorLiena.length; i++) {
+                textoModificado += mitadEspaciosPorLiena[i] + saltosDeLinea[i] + mitadEspaciosPorLiena[i] + "\n";
+            }
+            return textoModificado;
+
+        }
+
+        $("#generarPDF").click(function() {
+            var pdf = new jsPDF();
+            pdf.text(20, 20, centrarTitulo("<?php echo $descripcion ,  ":";?>", 50));
+            pdf.text(20, 40, convertirFraseParaFila("<?php echo $detalle; ?>",62 ));
+
+
+
+            var columns = ["                PROFESOR",
+                "                                ESPACIO"
+            ];
+            var data = [
+                <?php foreach($clases as $clase):?>[
+                    convertirFraseParaFila("<?php echo $clase->profesor; ?>", 30),
+                    convertirFraseParaFila("<?php echo $clase->espacio; ?>", 30)
+                ],
+                <?php endforeach; ?>
+            ];
+
+            pdf.autoTable(columns, data, {
+                margin: {
+                    top: 78
+                }
+            });
+
+            pdf.save('Reporte.pdf');
+
+        });
+        </script>
+
 </body>
+
+</html>
