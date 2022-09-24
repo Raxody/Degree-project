@@ -75,7 +75,7 @@ $resultado2 = $mysqli->query($sql2);
         } ?>
 
         <h2><?php echo $titulo?></h2>
-        <div class="row">
+        <div class="row" style="text-align: right; max-width: 90%;">
             <div id="content" class="col-lg-12">
                 <button id="generarPDF" class="btn btn-default">
                     <img src="../images/pdf.png" alt="" width="40" height="40">
@@ -86,8 +86,8 @@ $resultado2 = $mysqli->query($sql2);
             <div class="table-responsive">
                 <table class="table table-striped table-hover ">
                     <thead>
-                        <th>Descripcion</th>
-                        <th>Detalle</th>
+                        <th>Didáctica</th>
+                        <th>Descripción</th>
                     </thead>
                     <?php while($row = $resultado->fetch_array(MYSQLI_ASSOC)) {?>
                     <tr>
@@ -178,8 +178,8 @@ $resultado2 = $mysqli->query($sql2);
 
 
 
-            var columns = ["                DESCRIPCIÓN",
-                "                                                  DETALLE"
+            var columns = ["                DIDÁCTICA",
+                "                                               DESCRIPCIÓN"
             ];
             var data = [
                 <?php foreach($didacticas as $didactica):?>[

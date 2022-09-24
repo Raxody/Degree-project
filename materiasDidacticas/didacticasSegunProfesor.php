@@ -95,8 +95,8 @@ $resultado2 = $mysqli->query($sql2);
 
 
                     <thead>
-                        <th>Descripcion</th>
-                        <th>Detalle</th>
+                        <th>Didáctica</th>
+                        <th>Descripción</th>
                     </thead>
                     <?php while($row = $resultado->fetch_array(MYSQLI_ASSOC)) {?>
                     <tr>
@@ -186,8 +186,8 @@ $resultado2 = $mysqli->query($sql2);
             var pdf = new jsPDF();
             pdf.text(30, 20, centrarTitulo("<?php echo $titulo; ?>", 45));
 
-            var columns = ["                DESCRIPCIÓN",
-                "                                                  DETALLE"
+            var columns = ["                DIDÁCTICA",
+                "                                               DESCRIPCIÓN"
             ];
             var data = [
                 <?php foreach($didacticas as $didactica):?>[
