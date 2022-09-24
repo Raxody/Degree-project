@@ -29,7 +29,8 @@ $resultado2 = $mysqli->query($sql2);
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Didacticas</title>
+    <link rel="icon" href="../images/LogoPagina.png">
 
     <link rel="stylesheet" href="../materiasDidacticas/css/styleMostrarParaPDFS.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
@@ -165,6 +166,12 @@ $resultado2 = $mysqli->query($sql2);
 
         }
 
+        function posicionarElementos(textoParaEvaluar, posicionAnterior){
+            var cantidadLineas = textoParaEvaluar.split("\n");
+            var cant = posicionAnterior + (cantidadLineas.length * 15); 
+            return cant;
+        }
+
         $("#generarPDF").click(function() {
             var pdf = new jsPDF();
             pdf.text(30, 20, centrarTitulo("<?php echo $titulo; ?>", 50));
@@ -184,7 +191,7 @@ $resultado2 = $mysqli->query($sql2);
 
             pdf.autoTable(columns, data, {
                 margin: {
-                    top: 40
+                    top: posicionarElementos("<?php echo $titulo ,  ":";?>",20)
                 }
             });
 
