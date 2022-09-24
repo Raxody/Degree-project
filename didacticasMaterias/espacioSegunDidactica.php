@@ -173,20 +173,20 @@ $resultado2 = $mysqli->query($sql2);
             for (var i = 0; i < mitadEspaciosPorLiena.length; i++) {
                 textoModificado += mitadEspaciosPorLiena[i] + saltosDeLinea[i] + mitadEspaciosPorLiena[i] + "\n";
             }
-            return textoModificado;
+            return textoModificado.toUpperCase();
 
         }
 
         function posicionarElementos(textoParaEvaluar, posicionAnterior){
             var cantidadLineas = textoParaEvaluar.split("\n");
-            var cant = posicionAnterior + (cantidadLineas.length * 15); 
-            return cant;
+            var posicionADejar = posicionAnterior + (cantidadLineas.length * 15); 
+            return posicionADejar;
         }
 
         $("#generarPDF").click(function() {
             var pdf = new jsPDF();
 
-            pdf.text(30, 20, centrarTitulo("<?php echo $descripcion; ?>", 47));
+            pdf.text(20, 20, centrarTitulo("<?php echo $descripcion; ?>", 40));
 
             var columns = ["                PROFESOR",
                 "                                ESPACIO"

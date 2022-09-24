@@ -184,9 +184,7 @@ $resultado2 = $mysqli->query($sql2);
 
         $("#generarPDF").click(function() {
             var pdf = new jsPDF();
-            pdf.text(30, 20, centrarTitulo("<?php echo $titulo; ?>", 47));
-
-
+            pdf.text(30, 20, centrarTitulo("<?php echo $titulo; ?>", 45));
 
             var columns = ["                DESCRIPCIÓN",
                 "                                                  DETALLE"
