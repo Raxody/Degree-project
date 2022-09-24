@@ -11,7 +11,7 @@
             or a.descripcion_didactica LIKE '%$criterio%' ";
 		}
 	}
-	$sql = "SELECT e.nombre AS espacio,p.nombre AS profesor,a.descripcion_didactica AS didactica,
+	$sql = "SELECT e.nombre AS espacio,p.nombre AS profesor,p.apellido AS apellido,a.descripcion_didactica AS didactica,
      e.codigo AS codigoEspacio,p.codigo AS codigoProfesor FROM res_espacio AS e
      JOIN res_asignacion_didactica AS a ON (e.codigo = a.codigo_espacio)
      JOIN res_profesor AS p ON (p.codigo = a.codigo_profesor) $where ORDER BY p.codigo ASC, e.codigo ASC";
@@ -103,7 +103,7 @@
                     <tr>
 
                         <td><?php echo $row['espacio']; ?></td>
-                        <td><?php echo $row['profesor']; ?></td>
+                        <td><?php echo $row['profesor'] ," ", $row['apellido']; ?></td>
                         <td><?php echo $row['didactica']; ?></td>
                         <td><a href="#"
                                 data-href="./eliminarAsignacionDidacticas.php?codigoProfesor=<?php echo $row['codigoProfesor'];?>&codigoEspacio=<?php echo $row['codigoEspacio'];?>&didactica=<?php echo $row['didactica'];?>"

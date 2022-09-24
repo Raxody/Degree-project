@@ -46,7 +46,6 @@
                 </div>
                 <div class="col-sm-10">
                     <input type="text" class="form-control" id="descripcion" name="descripcion"
-                    style="text-transform:lowercase;"
                         placeholder="Ingresa el nombre de la didactica" required>
                 </div>
             </div>

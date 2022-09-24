@@ -69,7 +69,7 @@
                     <input type="image" id="enviar" name="enviar" value="Buscar" src="../images/buscar.png"
                         alt="Ingresar didáctica" />
                 </div>
-                <div class="col">
+                <div class="col"> 
                     <a href="./nuevoEstrategiasDidacticas.php"><img src="../images/agregar.png" alt=""></a>
                 </div>
             </div>

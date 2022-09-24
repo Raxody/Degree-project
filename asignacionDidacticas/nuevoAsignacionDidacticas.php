@@ -86,7 +86,7 @@
             <br>
             <form class="form-floating">
                 <div class="form-group">
-                    <a href="../estrategiasDidacticas/estrategiasDidacticas.php" class="btn btn-default">VER DESCRIPCIONES DIDÁCTICAS</a>
+                    <a href="../didacticasMaterias/cargarDidacticas.php" class="btn btn-default">VER DESCRIPCIONES DIDÁCTICAS</a>
                     &nbsp&nbsp&nbsp&nbsp
                     <a href="./asignacionDidacticas.php" class="btn btn-default">Regresar</a>
                     &nbsp&nbsp&nbsp&nbsp
