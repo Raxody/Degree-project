@@ -37,7 +37,7 @@ $resultado2 = $mysqli->query($sql2);
     <title>Didacticas</title>
     <link rel="icon" href="../images/LogoPagina.png">
     
-    <link rel="stylesheet" href="../didacticasMaterias/css/styleCargarDidacticas.css">
+    <link rel="stylesheet" href="./css/styleCargarDidacticas.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
         integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"

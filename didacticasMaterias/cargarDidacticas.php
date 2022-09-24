@@ -43,7 +43,7 @@ $resultado = $mysqli->query($sql);
     <br>
     <br>
 
-    <div class="container" style="text-align: right; max-width: 90%;">
+    <div class="container" style="text-align: right; max-width: 90%; background-color: #fdeaeb;">
         <div class="container-fluid d-flex justify-content-center">
                 <div class="row d-flex justify-content-center">
                     <?php while($row = $resultado->fetch_array(MYSQLI_ASSOC)) {?>
